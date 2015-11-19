@@ -45,9 +45,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdDisplay.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdDisplay.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AdDisplay.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AdDisplay.feature.cs</LastGenOutput>
+    </None>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
