@@ -1,0 +1,22 @@
+﻿Feature: Display Ads
+	As an interviewer I want to see if the candidate
+	can display simple data on a web page
+
+Background: 
+	Given I want to display All ads
+
+Scenario: Display all ads paged	
+	Then I should see 10 ads a page
+	And there should be 116 pages
+
+Scenario: Default sort order is the brand name
+	Then the data should be sorted
+
+Scenario: Sort ads by column
+	When I click the AdId column
+	Then the data should be sorted
+	| Column Name |
+	| AdId        |
+	| BrandId     |
+	| NumPages    |
+	| Position    |
