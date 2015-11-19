@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adilicious.Web", "src\Adili
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adilicious.Tests.Integration", "tests\integration\Adilicious.Tests.Integration\Adilicious.Tests.Integration.csproj", "{88A4702C-441E-438D-A73F-F365C57D234E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adilicious.Web.Tests.Unit", "tests\unit\Adilicious.Web.Tests.Unit\Adilicious.Web.Tests.Unit.csproj", "{C317202D-E8D1-46EE-83D3-2DB122B88AFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{88A4702C-441E-438D-A73F-F365C57D234E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88A4702C-441E-438D-A73F-F365C57D234E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88A4702C-441E-438D-A73F-F365C57D234E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C317202D-E8D1-46EE-83D3-2DB122B88AFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C317202D-E8D1-46EE-83D3-2DB122B88AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C317202D-E8D1-46EE-83D3-2DB122B88AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C317202D-E8D1-46EE-83D3-2DB122B88AFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,5 +44,6 @@ Global
 		{1492D7BB-6E77-4B87-B919-8A022DF42835} = {760EC4F7-FCC7-4D2A-A060-D8B3BC9185F0}
 		{43B46AD8-65D8-499E-A145-CCC62D5C512F} = {8DB717E2-C005-4EC6-9F11-D8838480A171}
 		{88A4702C-441E-438D-A73F-F365C57D234E} = {1492D7BB-6E77-4B87-B919-8A022DF42835}
+		{C317202D-E8D1-46EE-83D3-2DB122B88AFB} = {08615233-835E-49D0-B0A4-9FE6063DC6D9}
 	EndGlobalSection
 EndGlobal
