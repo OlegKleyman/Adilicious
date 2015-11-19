@@ -11,12 +11,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unit", "unit", "{08615233-8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "integration", "integration", "{1492D7BB-6E77-4B87-B919-8A022DF42835}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adilicious.Web", "src\Adilicious.Web\Adilicious.Web.csproj", "{43B46AD8-65D8-499E-A145-CCC62D5C512F}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43B46AD8-65D8-499E-A145-CCC62D5C512F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43B46AD8-65D8-499E-A145-CCC62D5C512F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43B46AD8-65D8-499E-A145-CCC62D5C512F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43B46AD8-65D8-499E-A145-CCC62D5C512F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{08615233-835E-49D0-B0A4-9FE6063DC6D9} = {760EC4F7-FCC7-4D2A-A060-D8B3BC9185F0}
 		{1492D7BB-6E77-4B87-B919-8A022DF42835} = {760EC4F7-FCC7-4D2A-A060-D8B3BC9185F0}
+		{43B46AD8-65D8-499E-A145-CCC62D5C512F} = {8DB717E2-C005-4EC6-9F11-D8838480A171}
 	EndGlobalSection
 EndGlobal
