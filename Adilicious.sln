@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8DB717E2-C005-4EC6-9F11-D8838480A171}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{760EC4F7-FCC7-4D2A-A060-D8B3BC9185F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "unit", "unit", "{08615233-835E-49D0-B0A4-9FE6063DC6D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "integration", "integration", "{1492D7BB-6E77-4B87-B919-8A022DF42835}"
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{08615233-835E-49D0-B0A4-9FE6063DC6D9} = {760EC4F7-FCC7-4D2A-A060-D8B3BC9185F0}
+		{1492D7BB-6E77-4B87-B919-8A022DF42835} = {760EC4F7-FCC7-4D2A-A060-D8B3BC9185F0}
+	EndGlobalSection
+EndGlobal
