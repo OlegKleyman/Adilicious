@@ -5,10 +5,11 @@
     [Binding]
     public class DisplayAllAds
     {
-        [Given(@"I want to display All ads")]
-        public void GivenIWantToDisplayAllAds()
+        private readonly AdiliciousWebsite website;
+
+        public DisplayAllAds()
         {
-            ScenarioContext.Current.Pending();
+            this.website = FeatureContext.Current.Get<AdiliciousWebsite>();
         }
 
         [Then(@"I should see (.*) ads a page")]
