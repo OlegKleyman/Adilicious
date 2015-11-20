@@ -12,10 +12,12 @@ Scenario: Display all ads paged
 Scenario: Default sort order is the brand name
 	Then the data should be sorted
 
-Scenario: Sort ads by column
-	When I click the AdId column
+Scenario Outline: Sort ads by column
+	When I click the <ColumnName> column
 	Then the data should be sorted
-	| Column Name |
+
+Examples: 
+	| ColumnName |
 	| AdId        |
 	| BrandId     |
 	| NumPages    |

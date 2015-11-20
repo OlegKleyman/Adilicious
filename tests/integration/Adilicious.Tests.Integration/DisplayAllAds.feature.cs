@@ -32,8 +32,8 @@ namespace Adilicious.Tests.Integration
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Display Ads", "As an interviewer I want to see if the candidate\ncan display simple data on a web" +
-                    " page", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Display Ads", "As an interviewer I want to see if the candidate\r\ncan display simple data on a we" +
+                    "b page", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -107,28 +107,21 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Sort ads by column")]
-        public virtual void SortAdsByColumn()
+        [NUnit.Framework.TestCaseAttribute("AdId", null)]
+        [NUnit.Framework.TestCaseAttribute("BrandId", null)]
+        [NUnit.Framework.TestCaseAttribute("NumPages", null)]
+        [NUnit.Framework.TestCaseAttribute("Position", null)]
+        public virtual void SortAdsByColumn(string columnName, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sort ads by column", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Sort ads by column", exampleTags);
 #line 15
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line 16
- testRunner.When("I click the AdId column", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Column Name"});
-            table1.AddRow(new string[] {
-                        "AdId"});
-            table1.AddRow(new string[] {
-                        "BrandId"});
-            table1.AddRow(new string[] {
-                        "NumPages"});
-            table1.AddRow(new string[] {
-                        "Position"});
+ testRunner.When(string.Format("I click the {0} column", columnName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 17
- testRunner.Then("the data should be sorted", ((string)(null)), table1, "Then ");
+ testRunner.Then("the data should be sorted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
