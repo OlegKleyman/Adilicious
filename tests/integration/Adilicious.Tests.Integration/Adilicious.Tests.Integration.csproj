@@ -57,6 +57,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdiliciousWebsite.cs" />
+    <Compile Include="CommonSteps.cs" />
     <Compile Include="DisplayAllAds.cs" />
     <Compile Include="DisplayAllAds.feature.cs">
       <AutoGen>True</AutoGen>
