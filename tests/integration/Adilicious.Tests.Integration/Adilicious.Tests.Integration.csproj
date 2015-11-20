@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DisplayAllAds.cs" />
     <Compile Include="DisplayAllAds.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
