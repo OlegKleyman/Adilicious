@@ -5,6 +5,7 @@ namespace Adilicious.Tests.Integration
     using System.Globalization;
     using System.Linq;
 
+    using Adilicious.Core;
     using Adilicious.Web.Models;
 
     using OpenQA.Selenium;
@@ -44,7 +45,7 @@ namespace Adilicious.Tests.Integration
                                 BrandId = int.Parse(columns[1].Text),
                                 BrandName = columns[2].Text,
                                 NumPages = decimal.Parse(columns[3].Text),
-                                Position = columns[4].Text
+                                Position = (Position)Enum.Parse(typeof(Position), columns[4].Text, true)
                             })
                     .ToList();
 

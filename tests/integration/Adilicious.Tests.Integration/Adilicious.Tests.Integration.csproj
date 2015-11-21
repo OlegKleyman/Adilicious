@@ -118,6 +118,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Adilicious.Core\Adilicious.Core.csproj">
+      <Project>{33791F26-25C4-4A25-9931-BD799DAE8622}</Project>
+      <Name>Adilicious.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\src\Adilicious.Web\Adilicious.Web.csproj">
       <Project>{43B46AD8-65D8-499E-A145-CCC62D5C512F}</Project>
       <Name>Adilicious.Web</Name>

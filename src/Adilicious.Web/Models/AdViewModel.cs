@@ -1,5 +1,7 @@
 namespace Adilicious.Web.Models
 {
+    using Adilicious.Core;
+
     public class AdViewModel
     {
         public int AdId { get; set; }
@@ -10,6 +12,6 @@ namespace Adilicious.Web.Models
 
         public decimal NumPages { get; set; }
 
-        public string Position { get; set; }
+        public Position Position { get; set; }
     }
 }
