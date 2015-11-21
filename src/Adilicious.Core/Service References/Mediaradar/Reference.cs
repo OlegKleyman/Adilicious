@@ -17,7 +17,7 @@ namespace Adilicious.Core.Mediaradar {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Ad", Namespace="http://schemas.datacontract.org/2004/07/AdDataService")]
     [System.SerializableAttribute()]
-    internal partial class Ad : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Ad : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -45,7 +45,7 @@ namespace Adilicious.Core.Mediaradar {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal int AdId {
+        public int AdId {
             get {
                 return this.AdIdField;
             }
@@ -58,7 +58,7 @@ namespace Adilicious.Core.Mediaradar {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal Adilicious.Core.Mediaradar.Brand Brand {
+        public Adilicious.Core.Mediaradar.Brand Brand {
             get {
                 return this.BrandField;
             }
@@ -71,7 +71,7 @@ namespace Adilicious.Core.Mediaradar {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal decimal NumPages {
+        public decimal NumPages {
             get {
                 return this.NumPagesField;
             }
@@ -84,7 +84,7 @@ namespace Adilicious.Core.Mediaradar {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal string Position {
+        public string Position {
             get {
                 return this.PositionField;
             }
@@ -110,7 +110,7 @@ namespace Adilicious.Core.Mediaradar {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Brand", Namespace="http://schemas.datacontract.org/2004/07/AdDataService")]
     [System.SerializableAttribute()]
-    internal partial class Brand : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Brand : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -132,7 +132,7 @@ namespace Adilicious.Core.Mediaradar {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal int BrandId {
+        public int BrandId {
             get {
                 return this.BrandIdField;
             }
@@ -145,7 +145,7 @@ namespace Adilicious.Core.Mediaradar {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        internal string BrandName {
+        public string BrandName {
             get {
                 return this.BrandNameField;
             }
@@ -169,7 +169,7 @@ namespace Adilicious.Core.Mediaradar {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Mediaradar.IAdDataService")]
-    internal interface IAdDataService {
+    public interface IAdDataService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdDataService/GetAdDataByDateRange", ReplyAction="http://tempuri.org/IAdDataService/GetAdDataByDateRangeResponse")]
         Adilicious.Core.Mediaradar.Ad[] GetAdDataByDateRange(System.DateTime startDate, System.DateTime endDate);
@@ -179,12 +179,12 @@ namespace Adilicious.Core.Mediaradar {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal interface IAdDataServiceChannel : Adilicious.Core.Mediaradar.IAdDataService, System.ServiceModel.IClientChannel {
+    public interface IAdDataServiceChannel : Adilicious.Core.Mediaradar.IAdDataService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal partial class AdDataServiceClient : System.ServiceModel.ClientBase<Adilicious.Core.Mediaradar.IAdDataService>, Adilicious.Core.Mediaradar.IAdDataService {
+    public partial class AdDataServiceClient : System.ServiceModel.ClientBase<Adilicious.Core.Mediaradar.IAdDataService>, Adilicious.Core.Mediaradar.IAdDataService {
         
         public AdDataServiceClient() {
         }
