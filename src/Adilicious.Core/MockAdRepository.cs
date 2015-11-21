@@ -25,6 +25,8 @@ namespace Adilicious.Core
             var serializer = new JavaScriptSerializer();
 
             var ads = serializer.Deserialize<Mediaradar.Ad[]>(File.ReadAllText(jsonPath));
+            var h = new Mediaradar.Ad();
+            h.Position = "";
             return ads.Select(ad => new Ad
                                         {
                                             Position = (Position)Enum.Parse(typeof(Position), ad.Position, true),

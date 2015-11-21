@@ -5,4 +5,46 @@
 }
 
 <h2>All Results</h2>
-
+<table id="ads" class="tablesorter">
+    <thead>
+        <tr>
+            <td>
+                Ad Id
+            </td>
+            <td>
+                Brand Id
+            </td>
+            <td>
+                Brand Name
+            </td>
+            <td>
+                Number of Pages
+            </td>
+            <td>
+                Position
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ad in Model)
+        {
+            <tr>
+                <td>
+                    @ad.AdId
+                </td>
+                <td>
+                    @ad.BrandId
+                </td>
+                <td>
+                    @ad.BrandName
+                </td>
+                <td>
+                    @ad.NumPages
+                </td>
+                <td>
+                    @ad.Position
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
