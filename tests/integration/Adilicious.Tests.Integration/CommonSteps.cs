@@ -26,7 +26,9 @@
         [Given(@"I want to display (All|Cover|Top|TopBrands) ads")]
         public void GivenIWantToDisplayAds(AdDisplay display)
         {
-            FeatureContext.Current.Get<AdiliciousWebsite>().GetPage(display).Navigate(defaultPort);
+            var page = FeatureContext.Current.Get<AdiliciousWebsite>().GetPage(display);
+            page.Navigate(defaultPort);
+            page.ClickPageLink();
         }
     }
 }

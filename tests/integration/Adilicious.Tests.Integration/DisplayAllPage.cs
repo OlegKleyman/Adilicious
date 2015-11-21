@@ -8,5 +8,10 @@
         {
             
         }
+
+        public override void ClickPageLink()
+        {
+            Driver.FindElement(By.LinkText("All")).Click();
+        }
     }
 }
