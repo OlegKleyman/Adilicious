@@ -6,6 +6,8 @@ namespace Adilicious.Web.App_Start
     using System;
     using System.Web;
 
+    using Adilicious.Core;
+
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
@@ -61,6 +63,9 @@ namespace Adilicious.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IAdRepository>()
+                .ToMethod<MockAdRepository>(
+                    context => new MockAdRepository(HttpContext.Current.Server.MapPath("~/App_Data/ads.json")));
         }        
     }
 }

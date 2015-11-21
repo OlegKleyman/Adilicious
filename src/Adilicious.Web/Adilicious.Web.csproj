@@ -117,6 +117,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="App_Data\ads.json" />
     <None Include="Views\Home\All.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -125,9 +126,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Adilicious.Core\Adilicious.Core.csproj">
       <Project>{33791f26-25c4-4a25-9931-bd799dae8622}</Project>
