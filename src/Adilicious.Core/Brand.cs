@@ -25,10 +25,5 @@ namespace Adilicious.Core
             Id = id;
             Name = name;
         }
-
-        public override int GetHashCode()
-        {
-            return Name.GetHashCode() ^ Id.GetHashCode();
-        }
     }
 }
