@@ -61,6 +61,12 @@
     <Compile Include="AdiliciousPage.cs" />
     <Compile Include="AdiliciousWebsite.cs" />
     <Compile Include="CommonSteps.cs" />
+    <Compile Include="Cover.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cover.feature</DependentUpon>
+    </Compile>
+    <Compile Include="CoverPage.cs" />
     <Compile Include="DisplayAllAds.cs" />
     <Compile Include="DisplayAllAds.feature.cs">
       <AutoGen>True</AutoGen>
@@ -76,6 +82,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Cover.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Cover.feature.cs</LastGenOutput>
+    </None>
     <None Include="DisplayAllAds.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>DisplayAllAds.feature.cs</LastGenOutput>
