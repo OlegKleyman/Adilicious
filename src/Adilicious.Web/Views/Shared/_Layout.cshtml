@@ -9,6 +9,22 @@
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Addilicious", "Index", new { Controller = "Home" }, new { @class = "navbar-brand" })
+            </div>
+            <div role="navigation">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">Cover</a></li>
+                    <li><a href="#">Top</a></li>
+                    <li><a href="#">Top Brands</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div>
         @RenderBody()
     </div>
