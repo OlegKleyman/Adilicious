@@ -29,6 +29,8 @@
             var page = FeatureContext.Current.Get<AdiliciousWebsite>().GetPage(display);
             page.Navigate(defaultPort);
             page.ClickPageLink();
+
+            ScenarioContext.Current.Set(page);
         }
     }
 }

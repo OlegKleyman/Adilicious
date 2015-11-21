@@ -117,6 +117,12 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Adilicious.Web\Adilicious.Web.csproj">
+      <Project>{43B46AD8-65D8-499E-A145-CCC62D5C512F}</Project>
+      <Name>Adilicious.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,5 +1,9 @@
 ﻿namespace Adilicious.Tests.Integration
 {
+    using System.Linq;
+
+    using NUnit.Framework;
+
     using TechTalk.SpecFlow;
 
     [Binding]
@@ -15,7 +19,10 @@
         [Then(@"I should see (.*) ads a page")]
         public void ThenIShouldSeeAdsAPage(int adCount)
         {
-            ScenarioContext.Current.Pending();
+            var ads = ScenarioContext.Current.Get<AdiliciousPage>().GetDisplayedAds().ToList();
+            
+            ScenarioContext.Current.Set(ads);
+            Assert.That(ads.Count, Is.EqualTo(ads));
         }
 
         [Then(@"there should be (.*) pages")]
