@@ -28,7 +28,8 @@
         [Then(@"there should be (.*) pages")]
         public void ThenThereShouldBePages(int pageCount)
         {
-            ScenarioContext.Current.Pending();
+            var pages = ScenarioContext.Current.Get<AdiliciousPage>().GetAvailablePages();
+            Assert.That(pages, Is.EqualTo(pageCount));
         }
 
         [Then(@"the data should be sorted")]

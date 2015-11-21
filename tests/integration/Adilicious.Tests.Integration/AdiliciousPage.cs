@@ -51,5 +51,10 @@ namespace Adilicious.Tests.Integration
 
             return ads;
         }
+
+        public int GetAvailablePages()
+        {
+            return int.Parse(Driver.FindElement(By.XPath("//div[@id='pager']/form/input")).GetAttribute("value").Split('/')[1]);
+        }
     }
 }
