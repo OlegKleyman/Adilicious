@@ -14,7 +14,7 @@
 
         public override void Navigate(int port)
         {
-            Driver.Navigate().GoToUrl(String.Format(CultureInfo.InvariantCulture, "http://localhost:{0}/all", port));
+            Driver.Navigate().GoToUrl(String.Format(CultureInfo.InvariantCulture, "http://localhost:{0}/home/all", port));
         }
     }
 }
