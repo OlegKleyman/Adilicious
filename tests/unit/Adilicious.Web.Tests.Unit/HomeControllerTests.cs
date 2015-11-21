@@ -9,6 +9,8 @@
 
     using Moq;
 
+    using MoreLinq;
+
     using NUnit.Framework;
 
     [TestFixture]
@@ -24,7 +26,7 @@
             repository.Setup(adRepository => adRepository.GetAll()).Returns(ads);
             repository.Setup(adRepository => adRepository.GetCoverAds()).Returns(ads.Where(ad => ad.Position == Position.Cover));
             
-            var groupedAds =
+            var topBrands =
                 ads.GroupBy(ad => ad.Brand.Id)
                     .Select(
                         grouping =>
@@ -34,7 +36,10 @@
                                 NumPages = grouping.Sum(ad => ad.NumPages)
                             }).OrderByDescending(ad => ad.NumPages).ThenBy(ad => ad.Brand.Name);
 
-            repository.Setup(adRepository => adRepository.GetTopBrandsByCoverage()).Returns(groupedAds.Take(5));
+            repository.Setup(adRepository => adRepository.GetTopBrandsByCoverage()).Returns(topBrands.Take(5));
+            
+            var topAds = ads.OrderByDescending(ad => ad.NumPages).ThenBy(ad => ad.Brand.Name).DistinctBy(ad => ad.Brand.Name);
+            repository.Setup(adRepository => adRepository.GetTopAds()).Returns(topAds.Take(5));
         }
 
         private static IEnumerable<Ad> GetAds()
@@ -152,7 +157,7 @@
         }
 
         [Test]
-        public void TopBrandsShouldReturnOnlyCoverAdsSorted()
+        public void TopBrandsShouldReturnTopFiveBrandsSorted()
         {
             var controller = GetHomeController();
 
@@ -176,6 +181,33 @@
             Assert.That(model[3].BrandName, Is.EqualTo("ABC"));
             Assert.That(model[4].NumPages, Is.EqualTo(1));
             Assert.That(model[4].BrandName, Is.EqualTo("CNN"));
+        }
+
+        [Test]
+        public void TopAdsShouldReturnTopFiveAdsSorted()
+        {
+            var controller = GetHomeController();
+
+            var cover = controller.TopAds();
+            Assert.That(cover, Is.Not.Null);
+            Assert.That(cover.ViewBag.Title, Is.EqualTo("Top Ads"));
+            Assert.That(cover.ViewName, Is.EqualTo("TopFive"));
+            Assert.That(cover.Model, Is.InstanceOf<IEnumerable<AdViewModel>>());
+
+            var model = ((IEnumerable<AdViewModel>)cover.Model).ToList();
+
+            Assert.That(model.Count, Is.EqualTo(5));
+
+            Assert.That(model[0].NumPages, Is.EqualTo(3.5));
+            Assert.That(model[0].BrandName, Is.EqualTo("Samsung"));
+            Assert.That(model[1].NumPages, Is.EqualTo(1));
+            Assert.That(model[1].BrandName, Is.EqualTo("ABC"));
+            Assert.That(model[2].NumPages, Is.EqualTo(1));
+            Assert.That(model[2].BrandName, Is.EqualTo("Borgata"));
+            Assert.That(model[3].NumPages, Is.EqualTo(1));
+            Assert.That(model[3].BrandName, Is.EqualTo("CNN"));
+            Assert.That(model[4].NumPages, Is.EqualTo(1));
+            Assert.That(model[4].BrandName, Is.EqualTo("WPT"));
         }
 
         private HomeController GetHomeController()

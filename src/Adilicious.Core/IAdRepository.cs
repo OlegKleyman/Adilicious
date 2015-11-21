@@ -9,5 +9,7 @@ namespace Adilicious.Core
         IEnumerable<Ad> GetCoverAds();
 
         IEnumerable<Ad> GetTopBrandsByCoverage();
+
+        IEnumerable<Ad> GetTopAds();
     }
 }

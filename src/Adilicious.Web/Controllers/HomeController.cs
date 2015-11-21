@@ -59,10 +59,19 @@ namespace Adilicious.Web.Controllers
             var ads = adRepository.GetTopBrandsByCoverage();
             return View("TopFive", ads.Select(ad => new AdViewModel
             {
-                AdId = ad.AdId,
-                Position = ad.Position,
                 NumPages = ad.NumPages,
-                BrandId = ad.Brand.Id,
+                BrandName = ad.Brand.Name
+            }));
+        }
+
+        public ViewResult TopAds()
+        {
+            ViewBag.Title = "Top Ads";
+
+            var ads = adRepository.GetTopAds();
+            return View("TopFive", ads.Select(ad => new AdViewModel
+            {
+                NumPages = ad.NumPages,
                 BrandName = ad.Brand.Name
             }));
         }
