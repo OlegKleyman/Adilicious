@@ -137,6 +137,7 @@
     <Content Include="App_Data\ads.json" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Views\Home\AdsWithAllColumns.cshtml" />
+    <Content Include="Views\Home\TopFive.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

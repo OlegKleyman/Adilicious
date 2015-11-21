@@ -1,0 +1,29 @@
+﻿@model System.Collections.Generic.IEnumerable<Adilicious.Web.Models.AdViewModel>
+
+<h2>@ViewBag.Title</h2>
+
+<table id="ads" class="tablesorter">
+    <thead>
+        <tr>
+            <th>
+                Brand Name
+            </th>
+            <th>
+                Num Pages
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ad in Model)
+        {
+            <tr>
+                <td>
+                    @ad.NumPages
+                </td>
+                <td>
+                    @ad.BrandName
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

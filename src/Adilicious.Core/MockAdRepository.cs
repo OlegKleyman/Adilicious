@@ -52,7 +52,32 @@ namespace Adilicious.Core
 
         public IEnumerable<Ad> GetTopBrandsByCoverage()
         {
-            throw new NotImplementedException();
+            var serializer = new JavaScriptSerializer();
+
+            var ads =
+                serializer.Deserialize<Mediaradar.Ad[]>(File.ReadAllText(jsonPath))
+                    .GroupBy(ad => ad.Brand.BrandId)
+                    .Select(
+                        grouping =>
+                        new Mediaradar.Ad
+                            {
+                                Brand =
+                                    new Mediaradar.Brand
+                                        {
+                                            BrandId = grouping.Key,
+                                            BrandName = grouping.First().Brand.BrandName
+                                        },
+                                NumPages = grouping.Sum(ad => ad.NumPages)
+                            })
+                    .OrderByDescending(ad => ad.NumPages)
+                    .ThenBy(ad => ad.Brand.BrandName)
+                    .Take(5);
+
+            return ads.Select(ad => new Ad
+            {
+                NumPages = ad.NumPages,
+                Brand = new Brand(ad.Brand.BrandId, ad.Brand.BrandName)
+            });
         }
     }
 }

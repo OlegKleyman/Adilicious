@@ -60,6 +60,7 @@
     <Compile Include="AdDisplay.cs" />
     <Compile Include="AdiliciousPage.cs" />
     <Compile Include="AdiliciousWebsite.cs" />
+    <Compile Include="AllColumnsPage.cs" />
     <Compile Include="CommonSteps.cs" />
     <Compile Include="Cover.feature.cs">
       <AutoGen>True</AutoGen>
@@ -86,6 +87,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TopBrands.feature</DependentUpon>
     </Compile>
+    <Compile Include="TopBrandsPage.cs" />
+    <Compile Include="TopFivePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Cover.feature">

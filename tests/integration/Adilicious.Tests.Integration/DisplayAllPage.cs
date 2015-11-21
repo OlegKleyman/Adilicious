@@ -2,7 +2,7 @@
 {
     using OpenQA.Selenium;
 
-    public class DisplayAllPage : AdiliciousPage
+    public class DisplayAllPage : AllColumnsPage
     {
         public DisplayAllPage(IWebDriver driver) : base(driver)
         {
