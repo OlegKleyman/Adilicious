@@ -31,6 +31,7 @@
             page.ClickPageLink();
 
             ScenarioContext.Current.Set(page);
+            ScenarioContext.Current.Set("Brand Name");
         }
     }
 }

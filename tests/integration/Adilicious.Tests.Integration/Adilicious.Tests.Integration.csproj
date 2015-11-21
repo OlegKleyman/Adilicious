@@ -82,6 +82,9 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="References\ads.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Service References\Mediaradar\AdDataService.wsdl" />
     <None Include="Service References\Mediaradar\Adilicious.Tests.Integration.Mediaradar.Ad.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>

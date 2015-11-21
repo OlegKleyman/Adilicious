@@ -9,6 +9,7 @@ namespace Adilicious.Tests.Integration
     using Adilicious.Web.Models;
 
     using OpenQA.Selenium;
+    using OpenQA.Selenium.Support.UI;
 
     public abstract class AdiliciousPage
     {
@@ -55,6 +56,29 @@ namespace Adilicious.Tests.Integration
         public int GetAvailablePages()
         {
             return int.Parse(Driver.FindElement(By.XPath("//div[@id='pager']/form/input")).GetAttribute("value").Split('/')[1]);
+        }
+
+        public IEnumerable<AdViewModel> GetAllAvailableAds()
+        {
+            var select = new SelectElement(Driver.FindElement(By.XPath("//div[@id='pager']/form/select")));
+            select.SelectByValue("2000");
+
+            var rows = Driver.FindElements(By.XPath("//table/tbody/tr"));
+
+            var ads =
+                rows.Select(row => row.FindElements(By.TagName("td")))
+                    .Select(
+                        columns =>
+                        new AdViewModel
+                            {
+                                AdId = int.Parse(columns[0].Text),
+                                BrandId = int.Parse(columns[1].Text),
+                                BrandName = columns[2].Text,
+                                NumPages = decimal.Parse(columns[3].Text),
+                                Position = (Position)Enum.Parse(typeof(Position), columns[4].Text, true)
+                            });
+
+            return ads;
         }
     }
 }

@@ -1,6 +1,9 @@
 ﻿namespace Adilicious.Tests.Integration
 {
+    using System;
     using System.Linq;
+
+    using Adilicious.Core;
 
     using NUnit.Framework;
 
@@ -35,7 +38,9 @@
         [Then(@"the data should be sorted")]
         public void ThenTheDataShouldBeSorted()
         {
-            ScenarioContext.Current.Pending();
+            var allAds = ScenarioContext.Current.Get<AdiliciousPage>().GetAllAvailableAds();
+
+            Assert.That(allAds, Is.Ordered.By(ScenarioContext.Current.Get<string>().Replace(" ", String.Empty)));
         }
 
         [When(@"I click the (.+) column")]
