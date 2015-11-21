@@ -22,7 +22,7 @@
             var ads = ScenarioContext.Current.Get<AdiliciousPage>().GetDisplayedAds().ToList();
             
             ScenarioContext.Current.Set(ads);
-            Assert.That(ads.Count, Is.EqualTo(ads));
+            Assert.That(ads.Count, Is.EqualTo(adCount));
         }
 
         [Then(@"there should be (.*) pages")]

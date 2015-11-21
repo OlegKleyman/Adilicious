@@ -7,7 +7,7 @@ Background:
 
 Scenario: Display all ads paged	
 	Then I should see 10 ads a page
-	And there should be 116 pages
+	And there should be 117 pages
 
 Scenario: Default sort order is the brand name
 	Then the data should be sorted

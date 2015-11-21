@@ -4,25 +4,36 @@
     ViewBag.Title = "All Results";
 }
 
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(
+            function () {
+                $("#ads").tablesorter({ widthFixed: true, widgets: ['zebra'] }).tablesorterPager({ container: $("#pager") });
+            }
+        );
+    </script>
+}
+
 <h2>All Results</h2>
 <table id="ads" class="tablesorter">
     <thead>
         <tr>
-            <td>
+            <th>
                 Ad Id
-            </td>
-            <td>
+            </th>
+            <th>
                 Brand Id
-            </td>
-            <td>
+            </th>
+            <th>
                 Brand Name
-            </td>
-            <td>
+            </th>
+            <th>
                 Number of Pages
-            </td>
-            <td>
+            </th>
+            <th>
                 Position
-            </td>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -48,3 +59,18 @@
         }
     </tbody>
 </table>
+<div id="pager" class="pager">
+    <form>
+        <img src="~/pager/first.png" class="first" />
+        <img src="~/pager/prev.png" class="prev" />
+        <input type="text" class="pagedisplay" />
+        <img src="~/pager/next.png" class="next" />
+        <img src="~/pager/last.png" class="last" />
+        <select class="pagesize">
+            <option selected="selected" value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+        </select>
+    </form>
+</div>
