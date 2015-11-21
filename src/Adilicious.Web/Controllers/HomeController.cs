@@ -51,5 +51,20 @@ namespace Adilicious.Web.Controllers
                 BrandName = ad.Brand.Name
             }).OrderBy(model => model.BrandName));
         }
+
+        public ViewResult TopBrands()
+        {
+            ViewBag.Title = "Top Brands";
+
+            var ads = adRepository.GetTopBrandsByCoverage();
+            return View("TopFive", ads.Select(ad => new AdViewModel
+            {
+                AdId = ad.AdId,
+                Position = ad.Position,
+                NumPages = ad.NumPages,
+                BrandId = ad.Brand.Id,
+                BrandName = ad.Brand.Name
+            }));
+        }
     }
 }

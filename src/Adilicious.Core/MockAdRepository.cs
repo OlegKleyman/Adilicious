@@ -49,5 +49,10 @@ namespace Adilicious.Core
                 Brand = new Brand(ad.Brand.BrandId, ad.Brand.BrandName)
             });
         }
+
+        public IEnumerable<Ad> GetTopBrandsByCoverage()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
