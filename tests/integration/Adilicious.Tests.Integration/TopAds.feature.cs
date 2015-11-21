@@ -19,21 +19,21 @@ namespace Adilicious.Tests.Integration
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("TopBrands")]
-    public partial class TopBrandsFeature
+    [NUnit.Framework.DescriptionAttribute("TopAds")]
+    public partial class TopAdsFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "TopBrands.feature"
+#line 1 "TopAds.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "TopBrands", "As an interviewer I want to see if the candidate\r\ncan order by multiple columns a" +
-                    "nd use group by", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "TopAds", "As an interviewer I want to see if the candidate\r\ncan order by multiple columns a" +
+                    "nd use distinct", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -67,9 +67,9 @@ namespace Adilicious.Tests.Integration
         
         public virtual void FeatureBackground()
         {
-#line 4
 #line 5
- testRunner.Given("I want to display TopBrands ads", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 6
+ testRunner.Given("I want to display TopAds ads", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
@@ -78,27 +78,29 @@ namespace Adilicious.Tests.Integration
         public virtual void DisplayTop5Brands()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Display top 5 brands", ((string[])(null)));
-#line 7
-this.ScenarioSetup(scenarioInfo);
-#line 4
-this.FeatureBackground();
 #line 8
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 9
  testRunner.Then("I should see 5 ads a page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Display top 5 brands by page coverage amount sorted")]
-        public virtual void DisplayTop5BrandsByPageCoverageAmountSorted()
+        [NUnit.Framework.DescriptionAttribute("Show top 5 ads by page coverage amount, distinct by brand, and sorted")]
+        public virtual void ShowTop5AdsByPageCoverageAmountDistinctByBrandAndSorted()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Display top 5 brands by page coverage amount sorted", ((string[])(null)));
-#line 10
-this.ScenarioSetup(scenarioInfo);
-#line 4
-this.FeatureBackground();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Show top 5 ads by page coverage amount, distinct by brand, and sorted", ((string[])(null)));
 #line 11
- testRunner.Then("the ads should be sorted by Brand Name and coverage amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+this.ScenarioSetup(scenarioInfo);
+#line 5
+this.FeatureBackground();
+#line 12
+ testRunner.Then("I should see the ads sorted by coverage amount and then brand", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 13
+ testRunner.And("it should be distinct by brand", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -4,6 +4,7 @@ namespace Adilicious.Tests.Integration
     {
         All,
         Cover,
+        TopAds,
         TopBrands
     }
 }

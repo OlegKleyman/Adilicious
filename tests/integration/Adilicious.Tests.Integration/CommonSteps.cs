@@ -23,7 +23,7 @@
             FeatureContext.Current.Get<AdiliciousWebsite>().Stop();
         }
 
-        [Given(@"I want to display (All|Cover|Top|TopBrands) ads")]
+        [Given(@"I want to display (All|Cover|TopAds|TopBrands) ads")]
         public void GivenIWantToDisplayAds(AdDisplay display)
         {
             var page = FeatureContext.Current.Get<AdiliciousWebsite>().GetPage(display);

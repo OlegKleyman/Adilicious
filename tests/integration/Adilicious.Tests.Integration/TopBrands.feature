@@ -1,6 +1,6 @@
 ﻿Feature: TopBrands
 	As an interviewer I want to see if the candidate
-	can order by multiple columns
+	can order by multiple columns and use group by
 Background: 
 	Given I want to display TopBrands ads
 

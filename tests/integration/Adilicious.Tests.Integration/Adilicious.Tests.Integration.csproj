@@ -82,6 +82,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="TopAds.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TopAds.feature</DependentUpon>
+    </Compile>
     <Compile Include="TopBrands.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -114,6 +119,10 @@
     </None>
     <None Include="Service References\Mediaradar\AdService2.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="TopAds.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>TopAds.feature.cs</LastGenOutput>
     </None>
     <None Include="TopBrands.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

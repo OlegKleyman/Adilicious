@@ -12,5 +12,16 @@
             ScenarioContext.Current.Pending();
         }
 
+        [Then(@"I should see the ads sorted by coverage amount and then brand")]
+        public void ThenIShouldSeeTheAdsSortedByCoverageAmountAndThenBrand()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"it should be distinct by brand")]
+        public void ThenItShouldBeDistinctByBrand()
+        {
+            ScenarioContext.Current.Pending();
+        }
     }
 }
