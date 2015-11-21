@@ -6,6 +6,8 @@ namespace Adilicious.Core
     using System.Linq;
     using System.Web.Script.Serialization;
 
+    using MoreLinq;
+
     public class MockAdRepository : IAdRepository
     {
         private readonly string jsonPath;
@@ -82,7 +84,20 @@ namespace Adilicious.Core
 
         public IEnumerable<Ad> GetTopAds()
         {
-            throw new NotImplementedException();
+            var serializer = new JavaScriptSerializer();
+
+            var ads =
+                serializer.Deserialize<Mediaradar.Ad[]>(File.ReadAllText(jsonPath))
+                    .OrderByDescending(ad => ad.NumPages)
+                    .ThenBy(ad => ad.Brand.BrandName)
+                    .DistinctBy(ad => ad.Brand.BrandName)
+                    .Take(5);
+
+            return ads.Select(ad => new Ad
+            {
+                NumPages = ad.NumPages,
+                Brand = new Brand(ad.Brand.BrandId, ad.Brand.BrandName)
+            });
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿namespace Adilicious.Tests.Integration
 {
+    using System;
+
     using OpenQA.Selenium.Firefox;
 
     using TechTalk.SpecFlow;
@@ -12,7 +14,10 @@
         [BeforeFeature]
         public static void Setup()
         {
-            var site = new AdiliciousWebsite(new FirefoxDriver());
+            var driver = new FirefoxDriver();
+            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
+
+            var site = new AdiliciousWebsite(driver);
             site.Start(defaultPort);
             FeatureContext.Current.Set(site);
         }

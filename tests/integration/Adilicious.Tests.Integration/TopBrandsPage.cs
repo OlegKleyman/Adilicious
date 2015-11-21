@@ -21,23 +21,5 @@
         {
             Driver.FindElement(By.LinkText("Top Brands")).Click();
         }
-
-        public override IEnumerable<AdViewModel> GetDisplayedAds()
-        {
-            var rows = Driver.FindElements(By.XPath("//table/tbody/tr"));
-
-            var ads =
-                rows.Select(row => row.FindElements(By.TagName("td")))
-                    .Select(
-                        columns =>
-                        new AdViewModel
-                        {
-                            NumPages = decimal.Parse(columns[0].Text),
-                            BrandName = columns[1].Text
-                        })
-                    .ToList();
-
-            return ads;
-        }
     }
 }

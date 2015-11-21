@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Threading;
 
     using Adilicious.Core;
 
@@ -48,6 +49,9 @@
         {
             ScenarioContext.Current.Get<AdiliciousPage>().SortBy(columnName);
             ScenarioContext.Current.Set(columnName);
+            
+            // Wait for javascript to finish executing
+            Thread.Sleep(1000);
         }
 
         [Then(@"the data should be sorted")]
