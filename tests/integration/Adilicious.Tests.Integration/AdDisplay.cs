@@ -2,6 +2,8 @@ namespace Adilicious.Tests.Integration
 {
     public enum AdDisplay
     {
-        All
+        All,
+
+        Cover
     }
 }

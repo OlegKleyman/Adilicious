@@ -50,6 +50,9 @@
                 case AdDisplay.All:
                     page = new DisplayAllPage(driver);
                     break;
+                case AdDisplay.Cover:
+                    page = new CoverPage(driver);
+                    break;
                 default:
                     throw new InvalidOperationException(
                         String.Format(CultureInfo.InvariantCulture, "Invalid display: {0}", display));
