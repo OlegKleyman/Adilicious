@@ -1,9 +1,5 @@
 ﻿@model IEnumerable<Adilicious.Web.Models.AdViewModel>
 
-@{
-    ViewBag.Title = "All Results";
-}
-
 @section scripts
 {
     <script type="text/javascript">
@@ -15,7 +11,7 @@
     </script>
 }
 
-<h2>All Results</h2>
+<h2>@ViewBag.Title</h2>
 <table id="ads" class="tablesorter">
     <thead>
         <tr>

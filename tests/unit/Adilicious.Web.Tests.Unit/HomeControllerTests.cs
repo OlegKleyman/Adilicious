@@ -96,6 +96,7 @@
 
             var all = controller.All();
             Assert.That(all, Is.Not.Null);
+            Assert.That(all.ViewBag.Title, Is.EqualTo("All Results"));
             Assert.That(all.ViewName, Is.EqualTo("AdsWithAllColumns"));
             Assert.That(all.Model, Is.InstanceOf<IEnumerable<AdViewModel>>());
 
@@ -112,6 +113,7 @@
 
             var cover = controller.Cover();
             Assert.That(cover, Is.Not.Null);
+            Assert.That(cover.ViewBag.Title, Is.EqualTo("Cover Ads"));
             Assert.That(cover.ViewName, Is.EqualTo("AdsWithAllColumns"));
             Assert.That(cover.Model, Is.InstanceOf<IEnumerable<AdViewModel>>());
 

@@ -23,7 +23,10 @@ namespace Adilicious.Web.Controllers
 
         public ViewResult All()
         {
+            ViewBag.Title = "All Results";
+
             var ads = adRepository.GetAll();
+
             return View("AdsWithAllColumns", ads.Select(ad => new AdViewModel
                                                     {
                                                         AdId = ad.AdId,
@@ -36,6 +39,8 @@ namespace Adilicious.Web.Controllers
 
         public ViewResult Cover()
         {
+            ViewBag.Title = "Cover Ads";
+
             var ads = adRepository.GetCoverAds();
             return View("AdsWithAllColumns", ads.Select(ad => new AdViewModel
             {
