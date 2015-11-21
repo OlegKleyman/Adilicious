@@ -25,8 +25,7 @@ namespace Adilicious.Core
             var serializer = new JavaScriptSerializer();
 
             var ads = serializer.Deserialize<Mediaradar.Ad[]>(File.ReadAllText(jsonPath));
-            var h = new Mediaradar.Ad();
-            h.Position = "";
+            
             return ads.Select(ad => new Ad
                                         {
                                             Position = (Position)Enum.Parse(typeof(Position), ad.Position, true),
@@ -34,6 +33,21 @@ namespace Adilicious.Core
                                             AdId = ad.AdId,
                                             Brand = new Brand(ad.Brand.BrandId, ad.Brand.BrandName)
                                         });
+        }
+
+        public IEnumerable<Ad> GetCoverAds()
+        {
+            var serializer = new JavaScriptSerializer();
+
+            var ads = serializer.Deserialize<Mediaradar.Ad[]>(File.ReadAllText(jsonPath)).Where(ad => ad.Position == "Cover");
+
+            return ads.Select(ad => new Ad
+            {
+                Position = (Position)Enum.Parse(typeof(Position), ad.Position, true),
+                NumPages = ad.NumPages,
+                AdId = ad.AdId,
+                Brand = new Brand(ad.Brand.BrandId, ad.Brand.BrandName)
+            });
         }
     }
 }

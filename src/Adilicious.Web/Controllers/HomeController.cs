@@ -24,7 +24,7 @@ namespace Adilicious.Web.Controllers
         public ViewResult All()
         {
             var ads = adRepository.GetAll();
-            return View("All", ads.Select(ad => new AdViewModel
+            return View("AdsWithAllColumns", ads.Select(ad => new AdViewModel
                                                     {
                                                         AdId = ad.AdId,
                                                         Position = ad.Position,
@@ -32,6 +32,19 @@ namespace Adilicious.Web.Controllers
                                                         BrandId = ad.Brand.Id,
                                                         BrandName = ad.Brand.Name
                                                     }).OrderBy(model => model.BrandName));
+        }
+
+        public ViewResult Cover()
+        {
+            var ads = adRepository.GetCoverAds();
+            return View("AdsWithAllColumns", ads.Select(ad => new AdViewModel
+            {
+                AdId = ad.AdId,
+                Position = ad.Position,
+                NumPages = ad.NumPages,
+                BrandId = ad.Brand.Id,
+                BrandName = ad.Brand.Name
+            }).OrderBy(model => model.BrandName));
         }
     }
 }

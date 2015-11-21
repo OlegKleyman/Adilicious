@@ -5,5 +5,7 @@ namespace Adilicious.Core
     public interface IAdRepository
     {
         IEnumerable<Ad> GetAll();
+
+        IEnumerable<Ad> GetCoverAds();
     }
 }

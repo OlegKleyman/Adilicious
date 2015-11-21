@@ -22,6 +22,7 @@
             var ads = GetAds();
 
             repository.Setup(adRepository => adRepository.GetAll()).Returns(ads);
+            repository.Setup(adRepository => adRepository.GetCoverAds()).Returns(ads.Where(ad => ad.Position == Position.Cover));
         }
 
         private static IEnumerable<Ad> GetAds()
@@ -84,6 +85,7 @@
         {
             var controller = GetHomeController();
             var index = controller.Index();
+            Assert.That(index.ViewName, Is.EqualTo("index"));
             Assert.That(index, Is.Not.Null);
         }
 
@@ -94,11 +96,28 @@
 
             var all = controller.All();
             Assert.That(all, Is.Not.Null);
+            Assert.That(all.ViewName, Is.EqualTo("AdsWithAllColumns"));
             Assert.That(all.Model, Is.InstanceOf<IEnumerable<AdViewModel>>());
 
             var model = ((IEnumerable<AdViewModel>)all.Model).ToList();
 
             Assert.That(model.Count, Is.EqualTo(6));
+            Assert.That(model, Is.Ordered.By("BrandName"));
+        }
+
+        [Test]
+        public void CoverShouldReturnOnlyCoverAdsSorted()
+        {
+            var controller = GetHomeController();
+
+            var cover = controller.Cover();
+            Assert.That(cover, Is.Not.Null);
+            Assert.That(cover.ViewName, Is.EqualTo("AdsWithAllColumns"));
+            Assert.That(cover.Model, Is.InstanceOf<IEnumerable<AdViewModel>>());
+
+            var model = ((IEnumerable<AdViewModel>)cover.Model).ToList();
+
+            Assert.That(model.Count, Is.EqualTo(3));
             Assert.That(model, Is.Ordered.By("BrandName"));
         }
 
