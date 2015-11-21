@@ -85,7 +85,7 @@ this.FeatureBackground();
 #line 9
  testRunner.Then("I should see 10 ads a page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 10
- testRunner.And("there should be 35 pages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("there should be 10 pages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -107,9 +107,9 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Sort ads by column")]
-        [NUnit.Framework.TestCaseAttribute("AdId", null)]
-        [NUnit.Framework.TestCaseAttribute("BrandId", null)]
-        [NUnit.Framework.TestCaseAttribute("NumPages", null)]
+        [NUnit.Framework.TestCaseAttribute("Ad Id", null)]
+        [NUnit.Framework.TestCaseAttribute("Brand Id", null)]
+        [NUnit.Framework.TestCaseAttribute("Num Pages", null)]
         [NUnit.Framework.TestCaseAttribute("Position", null)]
         public virtual void SortAdsByColumn(string columnName, string[] exampleTags)
         {

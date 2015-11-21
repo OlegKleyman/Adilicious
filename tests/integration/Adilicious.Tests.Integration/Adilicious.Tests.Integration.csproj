@@ -82,9 +82,6 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="References\ads.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Service References\Mediaradar\AdDataService.wsdl" />
     <None Include="Service References\Mediaradar\Adilicious.Tests.Integration.Mediaradar.Ad.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -129,6 +126,9 @@
       <Project>{43B46AD8-65D8-499E-A145-CCC62D5C512F}</Project>
       <Name>Adilicious.Web</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

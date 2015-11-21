@@ -80,5 +80,15 @@ namespace Adilicious.Tests.Integration
 
             return ads;
         }
+
+        public void SortBy(string columnName)
+        {
+            var columnPath = String.Format(
+                CultureInfo.InvariantCulture,
+                "//table/thead/tr/th[contains(text(), '{0}')]",
+                columnName);
+            
+            Driver.FindElement(By.XPath(columnPath)).Click();
+        }
     }
 }

@@ -7,7 +7,7 @@ Background:
 
 Scenario: Display all ads paged	
 	Then I should see 10 ads a page
-	And there should be 35 pages
+	And there should be 10 pages
 
 Scenario: Default sort order is the brand name
 	Then the data should be sorted
@@ -18,7 +18,7 @@ Scenario Outline: Sort ads by column
 
 Examples: 
 	| ColumnName |
-	| AdId        |
-	| BrandId     |
-	| NumPages    |
+	| Ad Id        |
+	| Brand Id     |
+	| Num Pages    |
 	| Position    |

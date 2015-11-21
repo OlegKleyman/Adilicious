@@ -2,8 +2,7 @@ namespace Adilicious.Core
 {
     public enum Position
     {
-        Page,
-
-        Cover
+        Cover,
+        Page
     }
 }

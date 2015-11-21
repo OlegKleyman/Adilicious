@@ -46,7 +46,8 @@
         [When(@"I click the (.+) column")]
         public void WhenIClickTheColumn(string columnName)
         {
-            ScenarioContext.Current.Pending();
+            ScenarioContext.Current.Get<AdiliciousPage>().SortBy(columnName);
+            ScenarioContext.Current.Set(columnName);
         }
 
         [Then(@"the data should be sorted")]
