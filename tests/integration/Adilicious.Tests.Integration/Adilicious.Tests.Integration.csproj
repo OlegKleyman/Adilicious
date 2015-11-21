@@ -88,6 +88,7 @@
       <DependentUpon>TopBrands.feature</DependentUpon>
     </Compile>
     <Compile Include="TopBrandsPage.cs" />
+    <Compile Include="TopChartsSteps.cs" />
     <Compile Include="TopFivePage.cs" />
   </ItemGroup>
   <ItemGroup>
