@@ -127,70 +127,70 @@
         public void GetAllShouldReturnAllAds()
         {
             var repository = GetRepository();
-            var all = repository.GetAll().ToList();
+            var ads = repository.GetAll().ToList();
 
-            Assert.That(all.Count, Is.EqualTo(8));
-            Assert.That(all[0].AdId, Is.EqualTo(1));
-            Assert.That(all[1].AdId, Is.EqualTo(2));
-            Assert.That(all[2].AdId, Is.EqualTo(3));
-            Assert.That(all[3].AdId, Is.EqualTo(4));
-            Assert.That(all[4].AdId, Is.EqualTo(5));
-            Assert.That(all[5].AdId, Is.EqualTo(6));
-            Assert.That(all[6].AdId, Is.EqualTo(7));
-            Assert.That(all[7].AdId, Is.EqualTo(8));
+            Assert.That(ads.Count, Is.EqualTo(8));
+            Assert.That(ads[0].AdId, Is.EqualTo(1));
+            Assert.That(ads[1].AdId, Is.EqualTo(2));
+            Assert.That(ads[2].AdId, Is.EqualTo(3));
+            Assert.That(ads[3].AdId, Is.EqualTo(4));
+            Assert.That(ads[4].AdId, Is.EqualTo(5));
+            Assert.That(ads[5].AdId, Is.EqualTo(6));
+            Assert.That(ads[6].AdId, Is.EqualTo(7));
+            Assert.That(ads[7].AdId, Is.EqualTo(8));
         }
 
         [Test]
         public void GetCoverAdsShouldReturnAllCoverAds()
         {
             var repository = GetRepository();
-            var all = repository.GetCoverAds().ToList();
+            var ads = repository.GetCoverAds().ToList();
 
-            Assert.That(all.Count, Is.EqualTo(4));
-            Assert.That(all, Is.All.Property("Position").EqualTo(Position.Cover));
+            Assert.That(ads.Count, Is.EqualTo(4));
+            Assert.That(ads, Is.All.Property("Position").EqualTo(Position.Cover));
         }
 
         [Test]
         public void GetTopAdsShouldReturnTopFiveAds()
         {
             var repository = GetRepository();
-            var all = repository.GetTopAds().ToList();
+            var ads = repository.GetTopAds().ToList();
 
-            Assert.That(all.Count, Is.EqualTo(5));
-            Assert.That(all[0].AdId, Is.EqualTo(8));
-            Assert.That(all[0].NumPages, Is.EqualTo(3.5));
-            Assert.That(all[0].Brand.Id, Is.EqualTo(6));
-            Assert.That(all[1].AdId, Is.EqualTo(7));
-            Assert.That(all[1].NumPages, Is.EqualTo(1));
-            Assert.That(all[1].Brand.Id, Is.EqualTo(5));
-            Assert.That(all[2].AdId, Is.EqualTo(2));
-            Assert.That(all[2].NumPages, Is.EqualTo(1));
-            Assert.That(all[2].Brand.Id, Is.EqualTo(2));
-            Assert.That(all[3].AdId, Is.EqualTo(5));
-            Assert.That(all[3].NumPages, Is.EqualTo(1));
-            Assert.That(all[3].Brand.Id, Is.EqualTo(4));
-            Assert.That(all[4].AdId, Is.EqualTo(3));
-            Assert.That(all[4].NumPages, Is.EqualTo(1));
-            Assert.That(all[4].Brand.Id, Is.EqualTo(3));
+            Assert.That(ads.Count, Is.EqualTo(5));
+            Assert.That(ads[0].AdId, Is.EqualTo(8));
+            Assert.That(ads[0].NumPages, Is.EqualTo(3.5));
+            Assert.That(ads[0].Brand.Id, Is.EqualTo(6));
+            Assert.That(ads[1].AdId, Is.EqualTo(7));
+            Assert.That(ads[1].NumPages, Is.EqualTo(1));
+            Assert.That(ads[1].Brand.Id, Is.EqualTo(5));
+            Assert.That(ads[2].AdId, Is.EqualTo(2));
+            Assert.That(ads[2].NumPages, Is.EqualTo(1));
+            Assert.That(ads[2].Brand.Id, Is.EqualTo(2));
+            Assert.That(ads[3].AdId, Is.EqualTo(5));
+            Assert.That(ads[3].NumPages, Is.EqualTo(1));
+            Assert.That(ads[3].Brand.Id, Is.EqualTo(4));
+            Assert.That(ads[4].AdId, Is.EqualTo(3));
+            Assert.That(ads[4].NumPages, Is.EqualTo(1));
+            Assert.That(ads[4].Brand.Id, Is.EqualTo(3));
         }
 
         [Test]
         public void GetTopBrandsShouldReturnTopFiveBrands()
         {
             var repository = GetRepository();
-            var all = repository.GetTopBrandsByCoverage().ToList();
+            var ads = repository.GetTopBrandsByCoverage().ToList();
 
-            Assert.That(all.Count, Is.EqualTo(5));
-            Assert.That(all[0].NumPages, Is.EqualTo(3.5));
-            Assert.That(all[0].Brand.Id, Is.EqualTo(6));
-            Assert.That(all[1].NumPages, Is.EqualTo(1.5));
-            Assert.That(all[1].Brand.Id, Is.EqualTo(2));
-            Assert.That(all[2].NumPages, Is.EqualTo(1.5));
-            Assert.That(all[2].Brand.Id, Is.EqualTo(1));
-            Assert.That(all[3].NumPages, Is.EqualTo(1));
-            Assert.That(all[3].Brand.Id, Is.EqualTo(5));
-            Assert.That(all[4].NumPages, Is.EqualTo(1));
-            Assert.That(all[4].Brand.Id, Is.EqualTo(4));
+            Assert.That(ads.Count, Is.EqualTo(5));
+            Assert.That(ads[0].NumPages, Is.EqualTo(3.5));
+            Assert.That(ads[0].Brand.Id, Is.EqualTo(6));
+            Assert.That(ads[1].NumPages, Is.EqualTo(1.5));
+            Assert.That(ads[1].Brand.Id, Is.EqualTo(2));
+            Assert.That(ads[2].NumPages, Is.EqualTo(1.5));
+            Assert.That(ads[2].Brand.Id, Is.EqualTo(1));
+            Assert.That(ads[3].NumPages, Is.EqualTo(1));
+            Assert.That(ads[3].Brand.Id, Is.EqualTo(5));
+            Assert.That(ads[4].NumPages, Is.EqualTo(1));
+            Assert.That(ads[4].Brand.Id, Is.EqualTo(4));
         }
 
         private IAdRepository GetRepository()
