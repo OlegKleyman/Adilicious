@@ -90,18 +90,16 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Show top 5 ads by page coverage amount, distinct by brand, and sorted")]
-        [NUnit.Framework.IgnoreAttribute()]
         public virtual void ShowTop5AdsByPageCoverageAmountDistinctByBrandAndSorted()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Show top 5 ads by page coverage amount, distinct by brand, and sorted", new string[] {
-                        "ignore"});
-#line 13
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Show top 5 ads by page coverage amount, distinct by brand, and sorted", ((string[])(null)));
+#line 11
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
-#line 14
+#line 12
  testRunner.Then("I should see the ads sorted by coverage amount and then brand", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 15
+#line 13
  testRunner.And("it should be distinct by brand", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
