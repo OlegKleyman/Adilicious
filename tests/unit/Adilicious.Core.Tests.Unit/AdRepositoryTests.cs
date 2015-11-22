@@ -8,6 +8,8 @@
 
     using Moq;
 
+    using MoreLinq;
+
     using NUnit.Framework;
 
     [TestFixture]
@@ -21,6 +23,13 @@
             var ads = GetAds();
             adDataProxy.Setup(proxy => proxy.GetAll()).Returns(ads);
             adDataProxy.Setup(proxy => proxy.GetByPosition("Cover")).Returns(ads.Where(ad => ad.Position == "Cover"));
+
+            var topAds =
+                ads.OrderByDescending(ad => ad.NumPages)
+                    .ThenBy(ad => ad.Brand.BrandName)
+                    .DistinctBy(ad => ad.Brand.BrandName);
+
+            adDataProxy.Setup(proxy => proxy.GetTopAds(5)).Returns(topAds.Take(5));
         }
 
         private static IEnumerable<Ad> GetAds()
@@ -120,6 +129,30 @@
 
             Assert.That(all.Count, Is.EqualTo(4));
             Assert.That(all, Is.All.Property("Position").EqualTo(Position.Cover));
+        }
+
+        [Test]
+        public void GetTopAdsShouldReturnTopFiveAds()
+        {
+            var repository = GetRepository();
+            var all = repository.GetTopAds().ToList();
+
+            Assert.That(all.Count, Is.EqualTo(5));
+            Assert.That(all[0].AdId, Is.EqualTo(8));
+            Assert.That(all[0].NumPages, Is.EqualTo(3.5));
+            Assert.That(all[0].Brand.Id, Is.EqualTo(6));
+            Assert.That(all[1].AdId, Is.EqualTo(7));
+            Assert.That(all[1].NumPages, Is.EqualTo(1));
+            Assert.That(all[1].Brand.Id, Is.EqualTo(5));
+            Assert.That(all[2].AdId, Is.EqualTo(2));
+            Assert.That(all[2].NumPages, Is.EqualTo(1));
+            Assert.That(all[2].Brand.Id, Is.EqualTo(2));
+            Assert.That(all[3].AdId, Is.EqualTo(5));
+            Assert.That(all[3].NumPages, Is.EqualTo(1));
+            Assert.That(all[3].Brand.Id, Is.EqualTo(4));
+            Assert.That(all[4].AdId, Is.EqualTo(3));
+            Assert.That(all[4].NumPages, Is.EqualTo(1));
+            Assert.That(all[4].Brand.Id, Is.EqualTo(3));
         }
 
         private IAdRepository GetRepository()

@@ -9,5 +9,7 @@
         IEnumerable<Ad> GetAll();
 
         IEnumerable<Ad> GetByPosition(string position);
+
+        IEnumerable<Ad> GetTopAds(int topAdCount);
     }
 }

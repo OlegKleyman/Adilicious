@@ -37,7 +37,9 @@ namespace Adilicious.Core
 
         public IEnumerable<Ad> GetTopAds()
         {
-            throw new System.NotImplementedException();
+            const int topAdCount = 5;
+            
+            return adProxy.GetTopAds(topAdCount).Select(Ad.FromDataAd);
         }
     }
 }
