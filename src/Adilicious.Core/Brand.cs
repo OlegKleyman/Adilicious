@@ -25,5 +25,15 @@ namespace Adilicious.Core
             Id = id;
             Name = name;
         }
+
+        public static Brand FromDataBrand(Mediaradar.Brand brand)
+        {
+            if (brand == null)
+            {
+                throw new ArgumentNullException("brand");
+            }
+
+            return new Brand(brand.BrandId, brand.BrandName);
+        }
     }
 }
