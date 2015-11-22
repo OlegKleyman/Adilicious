@@ -78,6 +78,26 @@
             Assert.That(ads[4].Brand.BrandId, Is.EqualTo(3));
         }
 
+        [Test]
+        public void GetTopBrandsShouldReturnTopBrands()
+        {
+            var proxy = GetAdDataProxy();
+
+            var ads = proxy.GetTopBrands(5).ToList();
+
+            Assert.That(ads.Count, Is.EqualTo(5));
+            Assert.That(ads[0].NumPages, Is.EqualTo(3.5));
+            Assert.That(ads[0].Brand.BrandId, Is.EqualTo(6));
+            Assert.That(ads[1].NumPages, Is.EqualTo(1.5));
+            Assert.That(ads[1].Brand.BrandId, Is.EqualTo(2));
+            Assert.That(ads[2].NumPages, Is.EqualTo(1.5));
+            Assert.That(ads[2].Brand.BrandId, Is.EqualTo(1));
+            Assert.That(ads[3].NumPages, Is.EqualTo(1));
+            Assert.That(ads[3].Brand.BrandId, Is.EqualTo(5));
+            Assert.That(ads[4].NumPages, Is.EqualTo(1));
+            Assert.That(ads[4].Brand.BrandId, Is.EqualTo(4));
+        }
+
         private static IEnumerable<Ad> GetAds()
         {
             var ads = new List<Ad>();
