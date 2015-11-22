@@ -15,26 +15,17 @@ namespace Adilicious.Core
 
         public static Ad FromDataAd(Mediaradar.Ad dataAd)
         {
-            const string adParamName = "ad";
-
             if (dataAd == null)
             {
-                throw new ArgumentNullException(adParamName);
+                throw new ArgumentNullException("ad");
             }
 
             Position position;
 
-            if (!Enum.TryParse(dataAd.Position, true, out position))
-            {
-                throw new ArgumentException(
-                    String.Format(CultureInfo.InvariantCulture, "Invalid position: {0}", dataAd.Position),
-                    adParamName);
-            }
-
             return new Ad
                        {
                            Brand = Brand.FromDataBrand(dataAd.Brand),
-                           Position = position,
+                           Position = Enum.TryParse(dataAd.Position, true, out position) ? position : default(Position),
                            NumPages = dataAd.NumPages,
                            AdId = dataAd.AdId
                        };

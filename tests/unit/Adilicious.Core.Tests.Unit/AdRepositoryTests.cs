@@ -30,6 +30,25 @@
                     .DistinctBy(ad => ad.Brand.BrandName);
 
             adDataProxy.Setup(proxy => proxy.GetTopAds(5)).Returns(topAds.Take(5));
+
+            var topBrands =
+                ads.GroupBy(ad => ad.Brand.BrandId)
+                    .Select(
+                        grouping =>
+                        new Ad
+                            {
+                                Brand =
+                                    new Brand
+                                        {
+                                            BrandId = grouping.Key,
+                                            BrandName = grouping.First().Brand.BrandName
+                                        },
+                                NumPages = grouping.Sum(ad => ad.NumPages)
+                            })
+                    .OrderByDescending(ad => ad.NumPages)
+                    .ThenBy(ad => ad.Brand.BrandName);
+
+            adDataProxy.Setup(proxy => proxy.GetTopBrands(5)).Returns(topBrands.Take(5));
         }
 
         private static IEnumerable<Ad> GetAds()
@@ -153,6 +172,25 @@
             Assert.That(all[4].AdId, Is.EqualTo(3));
             Assert.That(all[4].NumPages, Is.EqualTo(1));
             Assert.That(all[4].Brand.Id, Is.EqualTo(3));
+        }
+
+        [Test]
+        public void GetTopBrandsShouldReturnTopFiveBrands()
+        {
+            var repository = GetRepository();
+            var all = repository.GetTopBrandsByCoverage().ToList();
+
+            Assert.That(all.Count, Is.EqualTo(5));
+            Assert.That(all[0].NumPages, Is.EqualTo(3.5));
+            Assert.That(all[0].Brand.Id, Is.EqualTo(6));
+            Assert.That(all[1].NumPages, Is.EqualTo(1.5));
+            Assert.That(all[1].Brand.Id, Is.EqualTo(2));
+            Assert.That(all[2].NumPages, Is.EqualTo(1.5));
+            Assert.That(all[2].Brand.Id, Is.EqualTo(1));
+            Assert.That(all[3].NumPages, Is.EqualTo(1));
+            Assert.That(all[3].Brand.Id, Is.EqualTo(5));
+            Assert.That(all[4].NumPages, Is.EqualTo(1));
+            Assert.That(all[4].Brand.Id, Is.EqualTo(4));
         }
 
         private IAdRepository GetRepository()

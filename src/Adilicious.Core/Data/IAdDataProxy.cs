@@ -10,6 +10,8 @@
 
         IEnumerable<Ad> GetByPosition(string position);
 
-        IEnumerable<Ad> GetTopAds(int topAdCount);
+        IEnumerable<Ad> GetTopAds(int count);
+
+        IEnumerable<Ad> GetTopBrands(int count);
     }
 }

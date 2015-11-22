@@ -8,6 +8,8 @@ namespace Adilicious.Core
 
     public class AdRepository : IAdRepository
     {
+        private const int TopChartCount = 5;
+
         private readonly IAdDataProxy adProxy;
 
         public AdRepository(IAdDataProxy adProxy)
@@ -32,14 +34,12 @@ namespace Adilicious.Core
 
         public IEnumerable<Ad> GetTopBrandsByCoverage()
         {
-            throw new System.NotImplementedException();
+            return adProxy.GetTopBrands(TopChartCount).Select(Ad.FromDataAd);
         }
 
         public IEnumerable<Ad> GetTopAds()
         {
-            const int topAdCount = 5;
-            
-            return adProxy.GetTopAds(topAdCount).Select(Ad.FromDataAd);
+            return adProxy.GetTopAds(TopChartCount).Select(Ad.FromDataAd);
         }
     }
 }
