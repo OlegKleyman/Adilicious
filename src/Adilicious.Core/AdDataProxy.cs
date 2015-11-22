@@ -10,11 +10,11 @@ namespace Adilicious.Core
 
     using MoreLinq;
 
-    public class MockDataProxy : IAdDataProxy
+    public class AdDataProxy : IAdDataProxy
     {
         private readonly string jsonPath;
 
-        public MockDataProxy(string jsonPath)
+        public AdDataProxy(string jsonPath)
         {
             if (jsonPath == null)
             {

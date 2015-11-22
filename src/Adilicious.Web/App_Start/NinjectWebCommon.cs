@@ -64,8 +64,7 @@ namespace Adilicious.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IAdDataProxy>().ToMethod(
-                    context => new MockDataProxy(HttpContext.Current.Server.MapPath("~/App_Data/ads.json")));
+            kernel.Bind<IAdDataProxy>().To<AdDataProxy>();
 
             kernel.Bind<IAdRepository>().To<AdRepository>().InSingletonScope();
         }        
