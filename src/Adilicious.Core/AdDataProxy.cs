@@ -66,7 +66,7 @@ namespace Adilicious.Core
                             NumPages = grouping.Sum(ad => ad.NumPages)
                         })
                     .OrderByDescending(ad => ad.NumPages)
-                    .ThenBy(ad => ad.Brand.BrandName).Take(5);
+                    .ThenBy(ad => ad.Brand.BrandName).Take(count);
         }
 
         public IEnumerable<Mediaradar.Ad> GetAll()
