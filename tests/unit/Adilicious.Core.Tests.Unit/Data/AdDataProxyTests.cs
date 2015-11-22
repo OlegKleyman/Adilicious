@@ -53,6 +53,31 @@
             Assert.That(ads, Is.All.Property("Position").EqualTo(position));
         }
 
+        [Test]
+        public void GetTopAdsShouldReturnTopAds()
+        {
+            var proxy = GetAdDataProxy();
+
+            var ads = proxy.GetTopAds(5).ToList();
+
+            Assert.That(ads.Count, Is.EqualTo(5));
+            Assert.That(ads[0].AdId, Is.EqualTo(8));
+            Assert.That(ads[0].NumPages, Is.EqualTo(3.5));
+            Assert.That(ads[0].Brand.BrandId, Is.EqualTo(6));
+            Assert.That(ads[1].AdId, Is.EqualTo(7));
+            Assert.That(ads[1].NumPages, Is.EqualTo(1));
+            Assert.That(ads[1].Brand.BrandId, Is.EqualTo(5));
+            Assert.That(ads[2].AdId, Is.EqualTo(2));
+            Assert.That(ads[2].NumPages, Is.EqualTo(1));
+            Assert.That(ads[2].Brand.BrandId, Is.EqualTo(2));
+            Assert.That(ads[3].AdId, Is.EqualTo(5));
+            Assert.That(ads[3].NumPages, Is.EqualTo(1));
+            Assert.That(ads[3].Brand.BrandId, Is.EqualTo(4));
+            Assert.That(ads[4].AdId, Is.EqualTo(3));
+            Assert.That(ads[4].NumPages, Is.EqualTo(1));
+            Assert.That(ads[4].Brand.BrandId, Is.EqualTo(3));
+        }
+
         private static IEnumerable<Ad> GetAds()
         {
             var ads = new List<Ad>();

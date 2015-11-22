@@ -47,16 +47,12 @@ namespace Adilicious.Core
 
         public IEnumerable<Mediaradar.Ad> GetTopAds(int count)
         {
-            var serializer = new JavaScriptSerializer();
-
-            var ads =
-                serializer.Deserialize<Mediaradar.Ad[]>(File.ReadAllText(jsonPath))
+            return
+                GetDefaultAds()
                     .OrderByDescending(ad => ad.NumPages)
                     .ThenBy(ad => ad.Brand.BrandName)
                     .DistinctBy(ad => ad.Brand.BrandName)
-                    .Take(5);
-
-            return ads;
+                    .Take(count);
         }
 
         public IEnumerable<Mediaradar.Ad> GetTopBrands(int count)
