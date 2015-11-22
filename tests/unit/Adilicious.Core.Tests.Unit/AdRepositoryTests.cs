@@ -20,6 +20,7 @@
         {
             var ads = GetAds();
             adDataProxy.Setup(proxy => proxy.GetAll()).Returns(ads);
+            adDataProxy.Setup(proxy => proxy.GetByPosition("Cover")).Returns(ads.Where(ad => ad.Position == "Cover"));
         }
 
         private static IEnumerable<Ad> GetAds()
@@ -109,6 +110,16 @@
             Assert.That(all[5].AdId, Is.EqualTo(6));
             Assert.That(all[6].AdId, Is.EqualTo(7));
             Assert.That(all[7].AdId, Is.EqualTo(8));
+        }
+
+        [Test]
+        public void GetCoverAdsShouldReturnAllCoverAds()
+        {
+            var repository = GetRepository();
+            var all = repository.GetCoverAds().ToList();
+
+            Assert.That(all.Count, Is.EqualTo(4));
+            Assert.That(all, Is.All.Property("Position").EqualTo(Position.Cover));
         }
 
         private IAdRepository GetRepository()

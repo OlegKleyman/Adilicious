@@ -27,7 +27,7 @@ namespace Adilicious.Core
 
         public IEnumerable<Ad> GetCoverAds()
         {
-            throw new System.NotImplementedException();
+            return adProxy.GetByPosition(Position.Cover.ToString()).Select(Ad.FromDataAd);
         }
 
         public IEnumerable<Ad> GetTopBrandsByCoverage()

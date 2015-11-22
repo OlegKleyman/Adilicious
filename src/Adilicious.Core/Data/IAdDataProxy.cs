@@ -7,5 +7,7 @@
     public interface IAdDataProxy
     {
         IEnumerable<Ad> GetAll();
+
+        IEnumerable<Ad> GetByPosition(string position);
     }
 }
