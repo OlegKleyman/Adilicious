@@ -16,8 +16,18 @@
         [Then(@"the ads should be sorted by Brand Name and coverage amount")]
         public void ThenTheAdsShouldBeSortedByBrandNameAndCoverageAmount()
         {
-            // TODO: implement step with real data
-            ScenarioContext.Current.Pending();
+            var ads = ScenarioContext.Current.Get<AdiliciousPage>().GetDisplayedAds().ToList();
+
+            Assert.That(ads[0].NumPages, Is.EqualTo(20));
+            Assert.That(ads[0].BrandName, Is.EqualTo("Saks Fifth Avenue"));
+            Assert.That(ads[1].NumPages, Is.EqualTo(19));
+            Assert.That(ads[1].BrandName, Is.EqualTo("Chanel (Women)"));
+            Assert.That(ads[2].NumPages, Is.EqualTo(16));
+            Assert.That(ads[2].BrandName, Is.EqualTo("Neiman Marcus"));
+            Assert.That(ads[3].NumPages, Is.EqualTo(16));
+            Assert.That(ads[3].BrandName, Is.EqualTo("Nordstrom"));
+            Assert.That(ads[4].NumPages, Is.EqualTo(16));
+            Assert.That(ads[4].BrandName, Is.EqualTo("Tommy Hilfiger"));
         }
 
         [Then(@"I should see the ads sorted by coverage amount and then brand")]
