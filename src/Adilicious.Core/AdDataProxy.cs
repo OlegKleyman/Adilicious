@@ -7,12 +7,18 @@ namespace Adilicious.Core
     using System.Web.Script.Serialization;
 
     using Adilicious.Core.Data;
+    using Adilicious.Core.Mediaradar;
 
     using MoreLinq;
 
     public class AdDataProxy : IAdDataProxy
     {
+        private readonly IAdDataService service;
+
         private readonly string jsonPath;
+
+        private static readonly DateTime defaultDateStart = new DateTime(2011, 1, 1);
+        private static readonly DateTime defaultDateEnd = new DateTime(2011, 4, 1);
 
         public AdDataProxy(string jsonPath)
         {
@@ -22,6 +28,16 @@ namespace Adilicious.Core
             }
 
             this.jsonPath = jsonPath;
+        }
+
+        public AdDataProxy(IAdDataService service)
+        {
+            if (service == null)
+            {
+                throw new ArgumentNullException("service");
+            }
+
+            this.service = service;
         }
 
         public IEnumerable<Mediaradar.Ad> GetByPosition(string position)
@@ -73,13 +89,9 @@ namespace Adilicious.Core
             return ads;
         }
 
-        IEnumerable<Mediaradar.Ad> IAdDataProxy.GetAll()
+        public IEnumerable<Mediaradar.Ad> GetAll()
         {
-            var serializer = new JavaScriptSerializer();
-
-            var ads = serializer.Deserialize<Mediaradar.Ad[]>(File.ReadAllText(jsonPath));
-
-            return ads;
+            return service.GetAdDataByDateRange(defaultDateStart, defaultDateEnd);
         }
     }
 }
