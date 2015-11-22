@@ -46,7 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ad.cs" />
+    <Compile Include="AdRepository.cs" />
     <Compile Include="Brand.cs" />
+    <Compile Include="Data\IAdDataProxy.cs" />
     <Compile Include="IAdRepository.cs" />
     <Compile Include="MockAdRepository.cs" />
     <Compile Include="Position.cs" />
