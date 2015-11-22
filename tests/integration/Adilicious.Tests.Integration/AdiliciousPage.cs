@@ -57,7 +57,8 @@ namespace Adilicious.Tests.Integration
                                 BrandName = columns[2].Text,
                                 NumPages = decimal.Parse(columns[3].Text),
                                 Position = (Position)Enum.Parse(typeof(Position), columns[4].Text, true)
-                            });
+                            // Take the first 114 arbitrarily to speed up test
+                            }).Take(114);
 
             return ads;
         }
