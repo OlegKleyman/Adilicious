@@ -42,6 +42,17 @@
             Assert.That(ads[7].AdId, Is.EqualTo(8));
         }
 
+        [TestCase("Cover")]
+        [TestCase("Page")]
+        public void GetByPositionShouldReturnAdsThatMatchThePosition(string position)
+        {
+            var proxy = GetAdDataProxy();
+
+            var ads = proxy.GetByPosition(position);
+
+            Assert.That(ads, Is.All.Property("Position").EqualTo(position));
+        }
+
         private static IEnumerable<Ad> GetAds()
         {
             var ads = new List<Ad>();

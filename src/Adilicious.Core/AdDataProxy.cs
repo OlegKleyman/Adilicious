@@ -42,11 +42,7 @@ namespace Adilicious.Core
 
         public IEnumerable<Mediaradar.Ad> GetByPosition(string position)
         {
-            var serializer = new JavaScriptSerializer();
-
-            var ads = serializer.Deserialize<Mediaradar.Ad[]>(File.ReadAllText(jsonPath)).Where(ad => ad.Position == "Cover");
-
-            return ads;
+            return GetDefaultAds().Where(ad => ad.Position == position);
         }
 
         public IEnumerable<Mediaradar.Ad> GetTopAds(int count)
@@ -90,6 +86,11 @@ namespace Adilicious.Core
         }
 
         public IEnumerable<Mediaradar.Ad> GetAll()
+        {
+            return GetDefaultAds();
+        }
+
+        private Mediaradar.Ad[] GetDefaultAds()
         {
             return service.GetAdDataByDateRange(defaultDateStart, defaultDateEnd);
         }
