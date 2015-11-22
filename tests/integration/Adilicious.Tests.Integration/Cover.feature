@@ -7,7 +7,7 @@ Background:
 
 Scenario: Display cover ads paged	
 	Then I should see 10 ads a page
-	And there should be 2 pages
+	And there should be 8 pages
 
 Scenario: All results should have a cover position
 	Then all results should have a cover position
