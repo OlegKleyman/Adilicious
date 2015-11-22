@@ -8,6 +8,7 @@ namespace Adilicious.Web.App_Start
 
     using Adilicious.Core;
     using Adilicious.Core.Data;
+    using Adilicious.Core.Mediaradar;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
@@ -64,8 +65,8 @@ namespace Adilicious.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IAdDataService>().To<AdDataServiceClient>();
             kernel.Bind<IAdDataProxy>().To<AdDataProxy>();
-
             kernel.Bind<IAdRepository>().To<AdRepository>().InSingletonScope();
         }        
     }
