@@ -3,6 +3,7 @@ namespace Adilicious.Core
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.Caching;
 
     using Adilicious.Core.Data;
     using Adilicious.Core.Mediaradar;
@@ -13,17 +14,25 @@ namespace Adilicious.Core
     {
         private readonly IAdDataService service;
 
+        private readonly ObjectCache cacheProvider;
+
         private static readonly DateTime defaultDateStart = new DateTime(2011, 1, 1);
         private static readonly DateTime defaultDateEnd = new DateTime(2011, 4, 1);
 
-        public AdDataProxy(IAdDataService service)
+        public AdDataProxy(IAdDataService service, ObjectCache cacheProvider)
         {
             if (service == null)
             {
                 throw new ArgumentNullException("service");
             }
 
+            if (cacheProvider == null)
+            {
+                throw new ArgumentNullException("cacheProvider");
+            }
+
             this.service = service;
+            this.cacheProvider = cacheProvider;
         }
 
         public IEnumerable<Mediaradar.Ad> GetByPosition(string position)
@@ -67,7 +76,25 @@ namespace Adilicious.Core
 
         private Mediaradar.Ad[] GetDefaultAds()
         {
-            return service.GetAdDataByDateRange(defaultDateStart, defaultDateEnd);
+            const string adCacheKey = "DefaultAdCache";
+            const int defaultCacheMinutes = 5;
+            
+            Mediaradar.Ad[] ads;
+            
+            if (cacheProvider[adCacheKey] == null)
+            {
+                ads = service.GetAdDataByDateRange(defaultDateStart, defaultDateEnd);
+                cacheProvider.Set(
+                adCacheKey,
+                ads,
+                DateTimeOffset.Now.AddMinutes(defaultCacheMinutes));
+            }
+            else
+            {
+                ads = (Mediaradar.Ad[])this.cacheProvider[adCacheKey];
+            }
+
+            return ads;
         }
     }
 }

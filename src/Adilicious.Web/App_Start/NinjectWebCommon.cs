@@ -4,6 +4,7 @@
 namespace Adilicious.Web.App_Start
 {
     using System;
+    using System.Runtime.Caching;
     using System.Web;
 
     using Adilicious.Core;
@@ -65,6 +66,7 @@ namespace Adilicious.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<ObjectCache>().ToMethod(context => MemoryCache.Default);
             kernel.Bind<IAdDataService>().To<AdDataServiceClient>();
             kernel.Bind<IAdDataProxy>().To<AdDataProxy>();
             kernel.Bind<IAdRepository>().To<AdRepository>().InSingletonScope();

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Runtime.Caching;
 
     using Adilicious.Core.Mediaradar;
 
@@ -14,6 +15,7 @@
     public class AdDataProxyTests
     {
         private readonly Mock<IAdDataService> adDataService = new Mock<IAdDataService>();
+        private Mock<ObjectCache> cacheProvider = new Mock<ObjectCache>();
 
         [TestFixtureSetUp]
         public void Setup()
@@ -172,7 +174,7 @@
 
         private AdDataProxy GetAdDataProxy()
         {
-            return new AdDataProxy(adDataService.Object);
+            return new AdDataProxy(adDataService.Object, cacheProvider.Object);
         }
     }
 }
